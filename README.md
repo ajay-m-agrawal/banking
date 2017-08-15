@@ -20,6 +20,8 @@ java -jar target\banking-1.0-SNAPSHOT.jar server banking.yml
 
 In case there is a conflict in port number, please update banking.yml with available port numbers
 
+Basic integration tests for all positive use cases are written in IntegrationTest.groovy.
+
 Few enhancements that could be added to the project:
 1. ACID transactions
 2. Logging
