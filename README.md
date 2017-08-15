@@ -6,7 +6,21 @@ This is a simple REST service which caters to below use cases:
 
 Database is in-memomry No SQL db for the sake of simplicity.
 
-Enhancements required:
+Project is built using Maven and runs as a Dropwizard service.
+
+To generate the Dropwizard artifact, execute below command:
+
+mvn package
+
+this will generate "target\banking-1.0-SNAPSHOT.jar"
+
+To run the service execute below command:
+
+java -jar target\banking-1.0-SNAPSHOT.jar server banking.yml
+
+In case there is a conflict in port number, please update banking.yml with available port numbers
+
+Few enhancements that could be added to the project:
 1. ACID transactions
 2. Logging
 3. Custom codes and messages for validation failure
