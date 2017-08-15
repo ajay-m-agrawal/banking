@@ -26,9 +26,11 @@ public class AccountService {
     public List<Account> findAll(String customerId) {
         List<Account> accountsFromDb = repository.findAll(customerId);
         List<Account> accounts = new ArrayList<Account>();
-        for (Account account: accountsFromDb) {
-            DateTime balanceValidDate = DateTime.now();
-            accounts.add(newAccount(account, getAvailableBalance(customerId, account.getId(), account.getBalance()), balanceValidDate));
+        if(accountsFromDb !=  null) {
+            for (Account account : accountsFromDb) {
+                DateTime balanceValidDate = DateTime.now();
+                accounts.add(newAccount(account, getAvailableBalance(customerId, account.getId(), account.getBalance()), balanceValidDate));
+            }
         }
         return accounts;
     }
@@ -36,7 +38,7 @@ public class AccountService {
     public Account find(String customerId, String accountId) {
         Account accountFromDb = repository.find(accountId);
         DateTime balanceValidDate = DateTime.now();
-        if(accountFromDb.getCustomerId() != null && accountFromDb.getCustomerId().equals(customerId)){
+        if(accountFromDb != null && accountFromDb.getCustomerId() != null && accountFromDb.getCustomerId().equals(customerId)){
             return newAccount(accountFromDb, getAvailableBalance(customerId, accountId, accountFromDb.getBalance()), balanceValidDate);
         }else {
             throw new IllegalArgumentException ("Account : " + accountId + ", does not belong to customer : " + customerId);

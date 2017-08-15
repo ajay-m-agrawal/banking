@@ -4,7 +4,6 @@ import com.revolut.banking.dto.AccountDto;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import static java.util.UUID.randomUUID;
 
