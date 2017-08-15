@@ -25,5 +25,5 @@ Few enhancements that could be added to the project:
 2. Logging
 3. Custom codes and messages for validation failure
 4. Swagger documentation
-5. Batch job to convert Pending transactions into Committed transactions and update balance field in accounts
+5. Batch job to convert Pending transactions into Committed transactions and update balance field in accounts so that on every get or process transaction request fewer PENDING transactions are pulled
 6. Unit testing for validations
